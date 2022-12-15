@@ -75,12 +75,12 @@ public class ArtistCommands extends ListenerAdapter {
                     
                    
                 } catch (Exception e) {
-                    System.out.println("========== try 1, err: "+e);
+                    System.out.println("Artist error 1: "+e);
                 
                 }
             }
         }catch (Exception e) {
-            System.out.println("========== try 2, err: "+e);;
+            System.out.println("Artist error 1 "+e);;
         }
     }
     

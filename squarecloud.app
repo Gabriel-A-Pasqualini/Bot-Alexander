@@ -1,0 +1,5 @@
+DISPLAY_NAME=bot inteligente
+DESCRIPTION=!HELP.
+MAIN=bot.jar
+MEMORY=100
+VERSION=recommended

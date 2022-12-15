@@ -1,3 +1,6 @@
 token.txt
+hippocrates.txt
+hippocratestwo.txt
 src/main/java/bot/alexander/apis/apiconfig.java
 src/main/java/bot/alexander/Commands/CommandConfig.java
+src/main/java/bot/alexander/Commands/HippocratesCommands.java
