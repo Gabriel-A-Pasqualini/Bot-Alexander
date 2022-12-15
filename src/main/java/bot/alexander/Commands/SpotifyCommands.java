@@ -11,10 +11,10 @@ public class SpotifyCommands extends ListenerAdapter{
     
     String prefix = alexander.prefix;
 
-    @Override
+    //@Override
     public void onMessageReceived(MessageReceivedEvent event) {
 
-        if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "Spotify")) {
+        if (event.getMessage().getContentRaw().startsWith(prefix + "Spotify")) {
             
             try {
 

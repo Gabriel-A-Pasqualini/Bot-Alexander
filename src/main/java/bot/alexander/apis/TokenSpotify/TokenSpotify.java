@@ -1,4 +1,5 @@
 package bot.alexander.apis.TokenSpotify;
+
 import java.io.IOException;
 
 import okhttp3.FormBody;
@@ -14,22 +15,22 @@ public class TokenSpotify {
         OkHttpClient client = new OkHttpClient();
 
         RequestBody formBody = new FormBody.Builder()
-        .add("grant_type", "client_credentials")
-        .build();
+                .add("grant_type", "client_credentials")
+                .build();
 
         Request request = new Request.Builder()
-            .url(requestUrl)
-            .addHeader("Authorization", "Basic OWRmZWNjZjFjOTdjNDliMmJjOTc0YjdkNTJiMDg4YWM6MWU1MDU2MDBiZTIwNGRjZDlhYzhlODhkNWY1MjNkZmQ=")
-            .addHeader("Content-Type", "application/x-www-form-urlencoded")
-            .post(formBody)
-            .build();
- 
+                .url(requestUrl)
+                .addHeader("Authorization",
+                        "Basic OWRmZWNjZjFjOTdjNDliMmJjOTc0YjdkNTJiMDg4YWM6MWU1MDU2MDBiZTIwNGRjZDlhYzhlODhkNWY1MjNkZmQ=")
+                .addHeader("Content-Type", "application/x-www-form-urlencoded")
+                .post(formBody)
+                .build();
+
         try (Response response = client.newCall(request).execute()) {
             String responseBody = response.body().string();
-            
-            System.out.println("Response API, new Spotify Token\n"+responseBody);
-            return responseBody;
-           }
-          }
-}
 
+            System.out.println("Response API, new Spotify Token: \n" + responseBody);
+            return responseBody;
+        }
+    }
+}

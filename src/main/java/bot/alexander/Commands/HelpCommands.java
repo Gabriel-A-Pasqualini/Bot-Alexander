@@ -12,7 +12,7 @@ public class HelpCommands extends ListenerAdapter{
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
 
-        if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "help")) {
+        if (event.getMessage().getContentRaw().startsWith(prefix + "help")) {
             System.out.println("help java");
             try {
                 EmbedBuilder info = new EmbedBuilder();

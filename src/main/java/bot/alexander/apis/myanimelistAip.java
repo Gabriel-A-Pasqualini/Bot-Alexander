@@ -10,7 +10,8 @@ import java.net.URL;
 
 public class myanimelistAip {
     
-    public static final String SEARCH_URL = "https://api.jikan.moe/v3/search/anime?q=title";
+    //public static final String SEARCH_URL = "https://api.jikan.moe/v3/search/anime?q=title";
+    public static final String SEARCH_URL = "https://api.jikan.moe/v4/anime?q=title";
     
     public static String sendGetRequest(String requestUrl){
         StringBuffer response = new StringBuffer();
@@ -33,10 +34,10 @@ public class myanimelistAip {
 
         } catch (MalformedURLException e) {
             
-            System.out.println("URL mal formatada");
+            System.out.println("MyAnimeList API - URL mal formatada: "+e);
         } catch (IOException e) {
             
-            System.out.println("Falha de input");
+            System.out.println("MyAnimeList API - Falha de input: "+e);
         }
 
 

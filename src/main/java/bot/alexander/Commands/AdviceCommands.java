@@ -1,4 +1,5 @@
 package bot.alexander.Commands;
+
 import bot.alexander.alexander;
 import bot.alexander.apis.api;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -7,11 +8,11 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class AdviceCommands extends ListenerAdapter {
-    
+
     String prefix = alexander.prefix;
-    
+
     public void onMessageReceived(MessageReceivedEvent event) {
-        if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "advice")){
+        if (event.getMessage().getContentRaw().startsWith(prefix + "advice")) {
             try {
                 String jsonResponse = api.adviceDiscord();
 
@@ -25,9 +26,9 @@ public class AdviceCommands extends ListenerAdapter {
                 event.getChannel().sendTyping().queue();
                 event.getChannel().sendMessageEmbeds(info.build()).queue();
                 info.clear();
-        } catch (ArrayIndexOutOfBoundsException e) {
+            } catch (ArrayIndexOutOfBoundsException e) {
 
+            }
         }
     }
-}
 }

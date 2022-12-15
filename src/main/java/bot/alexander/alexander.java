@@ -21,11 +21,11 @@ public class alexander {
     
     public static void main(String[] args) throws LoginException, IOException{
         
-        //Path caminho = Paths.get("./BotJava/bot/token.txt");
-        //byte[] texto = Files.readAllBytes(caminho);
-        //String leitura = new String("texto"); 
+        Path caminho = Paths.get("token.txt");
+        byte[] texto = Files.readAllBytes(caminho);
+        String leitura = new String(texto); 
         
-        JDABuilder jda = JDABuilder.createDefault("ODU0MDI3NjE1MzU4Mjg3OTEy.YMd9Mg.sVyf7kmrXd34wRbgtb5Y5Z5c36Y");
+        JDABuilder jda = JDABuilder.createDefault(leitura);
         
         //jda.setActivity(Activity.watching());
         jda.setStatus(OnlineStatus.ONLINE);
