@@ -1,5 +1,7 @@
 package bot.alexander.Commands;
 
+import javax.annotation.Nonnull;
+
 import bot.alexander.alexander;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -8,9 +10,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 public class HelpCommands extends ListenerAdapter{
     
     String prefix = alexander.prefix;
-
-    @Override
-    public void onMessageReceived(MessageReceivedEvent event) {
+    
+    public void onMessageReceived(@Nonnull MessageReceivedEvent event) {
 
         if (event.getMessage().getContentRaw().startsWith(prefix + "help")) {
             System.out.println("help java");

@@ -2,6 +2,9 @@ package bot.alexander.Commands;
 
 import bot.alexander.alexander;
 import bot.alexander.apis.song;
+
+import javax.annotation.Nonnull;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -12,7 +15,7 @@ public class ArtistCommands extends ListenerAdapter {
 
     String prefix = alexander.prefix;
 
-    public void onMessageReceived(MessageReceivedEvent event) {
+    public void onMessageReceived(@Nonnull MessageReceivedEvent event) {
 
         String message = event.getMessage().getContentRaw();
 

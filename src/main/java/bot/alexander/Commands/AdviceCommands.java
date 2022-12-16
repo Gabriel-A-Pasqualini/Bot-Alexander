@@ -11,7 +11,7 @@ public class AdviceCommands extends ListenerAdapter {
 
     String prefix = alexander.prefix;
 
-    public void onMessageReceived(MessageReceivedEvent event) {
+    public void MessageReceivedEvent(MessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith(prefix + "advice")) {
             try {
                 String jsonResponse = api.adviceDiscord();
