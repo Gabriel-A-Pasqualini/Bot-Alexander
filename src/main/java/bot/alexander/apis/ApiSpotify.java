@@ -10,9 +10,10 @@ public class ApiSpotify {
 
     static OkHttpClient client = new OkHttpClient();
 
-    public static String searchArtist(String token, String id) throws IOException {
+    public static JSONObject searchArtist(String token, String id) throws IOException {
 
-        String requestUrl = "https://api.spotify.com/v1/artists/" + id;
+        String requestUrl = "https://api.spotify.com/v1/artists/"+id;
+
 
         Request request = new Request.Builder()
                 .addHeader("Authorization", "Bearer " + token)
@@ -21,7 +22,10 @@ public class ApiSpotify {
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
+            String responseBody = response.body().string();
+            JSONObject jsonResponse = new JSONObject(responseBody);
+            return jsonResponse;
+
         }
     }
 

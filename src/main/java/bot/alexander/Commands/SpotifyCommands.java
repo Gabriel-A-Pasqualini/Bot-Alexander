@@ -1,6 +1,8 @@
 package bot.alexander.Commands;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 
@@ -21,9 +23,9 @@ public class SpotifyCommands extends ListenerAdapter{
     public void onMessageReceived(@Nonnull MessageReceivedEvent event) {
 
         String message = event.getMessage().getContentRaw();
-        if (message.startsWith(prefix + "Spotify")) {
+        if (message.startsWith(prefix + "spotify")) {
             
-            String artist_name = message.split("Spotify")[1];
+            String artist_name = message.split("spotify")[1];
             
             try {
                 EmbedBuilder info = new EmbedBuilder();
@@ -36,34 +38,58 @@ public class SpotifyCommands extends ListenerAdapter{
 
                 String id = ApiSpotify.searchForId(token,artist_name);
 
-                String artist_inf = ApiSpotify.searchArtist(token, id);
+                JSONObject artist_inf = ApiSpotify.searchArtist(token, id);
 
                 JSONArray topTracks = ApiSpotify.searchTopSongArtist(token, id);
 
 
-                Integer i = 0;
-                for (Object albuns : topTracks) {
+
+                List top_five_songs = new ArrayList();
+                for (Integer i = 0;i<=5;i++) {
 
                     JSONObject track = topTracks.getJSONObject(i);
-
                     JSONObject album = track.getJSONObject("album");
                     JSONArray imagem = album.getJSONArray("images");
                     JSONObject imagem_media = imagem.getJSONObject(1);
-                    String url_img_media = imagem_media.getString("url");
+                    //String url_img_media = imagem_media.getString("url");
                     String album_name = track.getString("name");
-                    String preview_url = track.getString("preview_url");
- 
-                    i++;
+                    //String preview_url = track.getString("preview_url");
+                    top_five_songs.add(album_name);
+                    
                 }
 
-                
+                String name = artist_inf.getString("name");
+                Integer popularity = artist_inf.getInt("popularity");
 
-                //info.setTitle("Artist: Gojira ");// + artists.getString("desc"));
-                //info.addField("album: ", String.join("/", album_name), false);
-                //info.setThumbnail(url_img_media); // setImage
-                //info.setColor(0xab0a1d);
-                //event.getChannel().sendTyping().queue();
-                //event.getChannel().sendMessageEmbeds(info.build()).queue();
+                JSONArray imagem = artist_inf.getJSONArray("images");
+                JSONObject imagem_media = imagem.getJSONObject(1);
+                String url_img_media = imagem_media.getString("url");
+
+                JSONObject followers = artist_inf.getJSONObject("followers");
+                Integer total = followers.getInt("total");
+
+
+                List genre_list = new ArrayList();
+                JSONArray genres = artist_inf.getJSONArray("genres");
+
+                Integer x = genres.length();
+
+                for(Integer i = 0;i<=x-1;i++){
+
+                    String genre = genres.getString(i);
+                    genre_list.add(genre);
+                }
+                
+                info.setTitle("Artist: "+name);// + artists.getString("desc"));
+                info.addField("Followers: ", total.toString(), false);
+                info.addField("Popularity: ", popularity.toString(), false);
+                info.addField("Genre: ", String.join("\n", genre_list), false);
+                info.addField("Song: ", String.join("\n", top_five_songs), false);
+                info.addField("Link: ", "https://open.spotify.com/artist/"+id, false);
+                info.setThumbnail(url_img_media);
+                info.setColor(0xab0a1d);
+                event.getChannel().sendTyping().queue();
+                event.getChannel().sendMessageEmbeds(info.build()).queue();
 
 
             } catch (ArrayIndexOutOfBoundsException e) {

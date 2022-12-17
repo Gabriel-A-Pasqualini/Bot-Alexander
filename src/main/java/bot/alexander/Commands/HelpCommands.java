@@ -20,7 +20,7 @@ public class HelpCommands extends ListenerAdapter{
                 info.setTitle("🕹 Commands: ");
                 info.addField("🎥 Movie information ", "?movie [movie's name]", false);
                 info.addField("🍣🍜 Anime information ", "?anime [anime's name]", false);
-                info.addField("🎼🎶 Artist information ", "?artist [artist's name]", false);
+                info.addField("🎼🎶 Artist information ", "?spotify [artist's name]", false);
                 info.addField("⚖ Advice for you ", "?advice ", false);
                 info.setColor(0xab0a1d);
 

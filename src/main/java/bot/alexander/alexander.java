@@ -10,7 +10,7 @@ import bot.alexander.Commands.MovieCommands;
 import bot.alexander.Commands.SpotifyCommands;
 import bot.alexander.Commands.AdviceCommands;
 import bot.alexander.Commands.AnimeCommands;
-import bot.alexander.Commands.ArtistCommands;
+//import bot.alexander.Commands.ArtistCommands;
 import bot.alexander.Commands.CommandConfig;
 import net.dv8tion.jda.api.OnlineStatus;
 //import net.dv8tion.jda.api.entities.Activity;
@@ -30,7 +30,7 @@ public class alexander {
         //jda.setActivity(Activity.watching());
         jda.setStatus(OnlineStatus.ONLINE);
         jda.addEventListeners(new SpotifyCommands());
-        jda.addEventListeners(new ArtistCommands());
+        //jda.addEventListeners(new ArtistCommands());
         jda.addEventListeners(new HelpCommands());
         jda.addEventListeners(new AdviceCommands());
         jda.addEventListeners(new MovieCommands());
