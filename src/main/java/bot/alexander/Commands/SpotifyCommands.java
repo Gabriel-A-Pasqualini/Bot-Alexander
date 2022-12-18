@@ -26,9 +26,8 @@ public class SpotifyCommands extends ListenerAdapter{
         if (message.startsWith(prefix + "spotify")) {
             
             String artist_name = message.split("spotify")[1];
-            
+            EmbedBuilder info = new EmbedBuilder();
             try {
-                EmbedBuilder info = new EmbedBuilder();
 
                 final String SEARCH_URL_TOKEN = "https://accounts.spotify.com/api/token";
 
@@ -42,15 +41,13 @@ public class SpotifyCommands extends ListenerAdapter{
 
                 JSONArray topTracks = ApiSpotify.searchTopSongArtist(token, id);
 
-
-
                 List top_five_songs = new ArrayList();
                 for (Integer i = 0;i<=5;i++) {
 
                     JSONObject track = topTracks.getJSONObject(i);
                     JSONObject album = track.getJSONObject("album");
                     JSONArray imagem = album.getJSONArray("images");
-                    JSONObject imagem_media = imagem.getJSONObject(1);
+                    JSONObject imagem_media = imagem.getJSONObject(2);
                     //String url_img_media = imagem_media.getString("url");
                     String album_name = track.getString("name");
                     //String preview_url = track.getString("preview_url");
@@ -94,19 +91,28 @@ public class SpotifyCommands extends ListenerAdapter{
 
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("SpotifyCommand -  ArrayIndexOutOfBoundsException Error: "+e);
+                info.setTitle("SpotifyCommand -  ArrayIndexOutOfBoundsException Error: ");// + artists.getString("desc"));
+                info.addField("Followers: ", e.toString(), false);
+                info.setColor(0xab0a1d);
+                event.getChannel().sendTyping().queue();
+                event.getChannel().sendMessageEmbeds(info.build()).queue();
             
             } catch (IOException e) {
                 System.out.println("SpotifyCommand -  IOException: "+e);      
-                e.printStackTrace();
+                info.setTitle("SpotifyCommand -  IOException:");// + artists.getString("desc"));
+                info.addField("Followers: ", e.toString(), false);
+                info.setColor(0xab0a1d);
+                event.getChannel().sendTyping().queue();
+                event.getChannel().sendMessageEmbeds(info.build()).queue();
 
             } catch (InterruptedException e) {
                 System.out.println("SpotifyCommand -  InterruptedException: "+e);                
-                e.printStackTrace();
+                info.setTitle("SpotifyCommand -  InterruptedException: ");// + artists.getString("desc"));
+                info.addField("Followers: ", e.toString(), false);
+                info.setColor(0xab0a1d);
+                event.getChannel().sendTyping().queue();
+                event.getChannel().sendMessageEmbeds(info.build()).queue();
             }
         }
-    }
-
-    private Object x(int length) {
-        return null;
     }
 }

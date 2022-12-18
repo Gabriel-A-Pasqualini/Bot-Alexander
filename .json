@@ -1,76 +1,135 @@
 {
-    "disc_number": 1,
-    "album": {
-        "total_tracks": 1,
-        "images": [
-            {
-                "width": 640,
-                "url": "https://i.scdn.co/image/ab67616d0000b2730856b3ffb19887a67f860760",
-                "height": 640
-            },
-            {
-                "width": 300,
-                "url": "https://i.scdn.co/image/ab67616d00001e020856b3ffb19887a67f860760",
-                "height": 300
-            },
-            {
-                "width": 64,
-                "url": "https://i.scdn.co/image/ab67616d000048510856b3ffb19887a67f860760",
-                "height": 64
-            }
-        ],
-        "artists": [
-            {
-                "name": "Gojira",
-                "href": "https://api.spotify.com/v1/artists/0GDGKpJFhVpcjIGF8N6Ewt",
-                "id": "0GDGKpJFhVpcjIGF8N6Ewt",
-                "type": "artist",
-                "external_urls": {
-                    "spotify": "https://open.spotify.com/artist/0GDGKpJFhVpcjIGF8N6Ewt"
-                },
-                "uri": "spotify:artist:0GDGKpJFhVpcjIGF8N6Ewt"
-            }
-        ],
-        "release_date": "2022-10-14",
-        "name": "Our Time Is Now",
-        "album_type": "single",
-        "release_date_precision": "day",
-        "href": "https://api.spotify.com/v1/albums/4tHLRx3g4JwIHlzlz4D7wA",
-        "id": "4tHLRx3g4JwIHlzlz4D7wA",
-        "type": "album",
-        "external_urls": {
-            "spotify": "https://open.spotify.com/album/4tHLRx3g4JwIHlzlz4D7wA"
-        },
-        "uri": "spotify:album:4tHLRx3g4JwIHlzlz4D7wA"
-    },
-    "type": "track",
-    "external_ids": {
-        "isrc": "NLA322200285"
-    },
-    "uri": "spotify:track:0dDs144SVansAFynvKYQMW",
-    "duration_ms": 271417,
-    "explicit": false,
-    "is_playable": true,
-    "artists": [
-        {
-            "name": "Gojira",
-            "href": "https://api.spotify.com/v1/artists/0GDGKpJFhVpcjIGF8N6Ewt",
-            "id": "0GDGKpJFhVpcjIGF8N6Ewt",
-            "type": "artist",
-            "external_urls": {
-                "spotify": "https://open.spotify.com/artist/0GDGKpJFhVpcjIGF8N6Ewt"
-            },
-            "uri": "spotify:artist:0GDGKpJFhVpcjIGF8N6Ewt"
+    "pagination": {
+        "last_visible_page": 2,
+        "has_next_page": true,
+        "current_page": 1,
+        "items": {
+            "count": 25,
+            "total": 29,
+            "per_page": 25
         }
-    ],
-    "preview_url": "https://p.scdn.co/mp3-preview/86a5426071cc8e052ce60a36d36c1f31dd6c2965?cid=9dfeccf1c97c49b2bc974b7d52b088ac",
-    "popularity": 63,
-    "name": "Our Time Is Now",
-    "track_number": 1,
-    "href": "https://api.spotify.com/v1/tracks/0dDs144SVansAFynvKYQMW",
-    "id": "0dDs144SVansAFynvKYQMW",
-    "is_local": false,
-    "external_urls": {
-        "spotify": "https://open.spotify.com/track/0dDs144SVansAFynvKYQMW"
-    }
+    },
+    "data": [
+        {
+            "mal_id": 53240,
+            "url": "https:\/\/myanimelist.net\/anime\/53240\/Naruto__Road_of_Naruto",
+            "images": {
+                "jpg": {
+                    "image_url": "https:\/\/cdn.myanimelist.net\/images\/anime\/1207\/128768.jpg",
+                    "small_image_url": "https:\/\/cdn.myanimelist.net\/images\/anime\/1207\/128768t.jpg",
+                    "large_image_url": "https:\/\/cdn.myanimelist.net\/images\/anime\/1207\/128768l.jpg"
+                },
+                "webp": {
+                    "image_url": "https:\/\/cdn.myanimelist.net\/images\/anime\/1207\/128768.webp",
+                    "small_image_url": "https:\/\/cdn.myanimelist.net\/images\/anime\/1207\/128768t.webp",
+                    "large_image_url": "https:\/\/cdn.myanimelist.net\/images\/anime\/1207\/128768l.webp"
+                }
+            },
+            "trailer": {
+                "youtube_id": null,
+                "url": null,
+                "embed_url": null,
+                "images": {
+                    "image_url": null,
+                    "small_image_url": null,
+                    "medium_image_url": null,
+                    "large_image_url": null,
+                    "maximum_image_url": null
+                }
+            },
+            "approved": false,
+            "titles": [
+                {
+                    "type": "Default",
+                    "title": "Naruto: Road of Naruto"
+                },
+                {
+                    "type": "Japanese",
+                    "title": "\u300eNARUTO-\u30ca\u30eb\u30c8-\u300f20\u5468\u5e74\u8a18\u5ff5"
+                },
+                {
+                    "type": "English",
+                    "title": "Naruto: 20th Anniversary"
+                }
+            ],
+            "title": "Naruto: Road of Naruto",
+            "title_english": "Naruto: 20th Anniversary",
+            "title_japanese": "\u300eNARUTO-\u30ca\u30eb\u30c8-\u300f20\u5468\u5e74\u8a18\u5ff5",
+            "title_synonyms": [],
+            "type": "Special",
+            "source": "Manga",
+            "episodes": 1,
+            "status": "Finished Airing",
+            "airing": false,
+            "aired": {
+                "from": "2022-10-03T00:00:00+00:00",
+                "to": null,
+                "prop": {
+                    "from": {
+                        "day": 3,
+                        "month": 10,
+                        "year": 2022
+                    },
+                    "to": {
+                        "day": null,
+                        "month": null,
+                        "year": null
+                    }
+                },
+                "string": "Oct 3, 2022 to ?"
+            },
+            "duration": "9 min",
+            "rating": "PG-13 - Teens 13 or older",
+            "score": null,
+            "scored_by": null,
+            "rank": 0,
+            "popularity": 0,
+            "members": 0,
+            "favorites": 0,
+            "synopsis": null,
+            "background": null,
+            "season": null,
+            "year": null,
+            "broadcast": {
+                "day": null,
+                "time": null,
+                "timezone": null,
+                "string": null
+            },
+            "producers": [],
+            "licensors": [],
+            "studios": [],
+            "genres": [
+                {
+                    "mal_id": 1,
+                    "type": "anime",
+                    "name": "Action",
+                    "url": "https:\/\/myanimelist.net\/anime\/genre\/1\/Action"
+                },
+                {
+                    "mal_id": 10,
+                    "type": "anime",
+                    "name": "Fantasy",
+                    "url": "https:\/\/myanimelist.net\/anime\/genre\/10\/Fantasy"
+                }
+            ],
+            "explicit_genres": [],
+            "themes": [
+                {
+                    "mal_id": 17,
+                    "type": "anime",
+                    "name": "Martial Arts",
+                    "url": "https:\/\/myanimelist.net\/anime\/genre\/17\/Martial_Arts"
+                }
+            ],
+            "demographics": [
+                {
+                    "mal_id": 27,
+                    "type": "anime",
+                    "name": "Shounen",
+                    "url": "https:\/\/myanimelist.net\/anime\/genre\/27\/Shounen"
+                }
+            ]
+        }
+    ]
 }

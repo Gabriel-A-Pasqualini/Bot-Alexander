@@ -2,9 +2,7 @@ package bot.alexander.Commands;
 
 import bot.alexander.alexander;
 import bot.alexander.apis.myanimelistAip;
-
 import javax.annotation.Nonnull;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -22,18 +20,15 @@ public class AnimeCommands extends ListenerAdapter {
             try {
                 String title = message.split("anime")[1];
                 String jsonResponse = myanimelistAip.searchAnime(title);
-
                 JSONObject obj = new JSONObject(jsonResponse);
-
-                JSONArray objaux = obj.getJSONArray("results");
-
+                JSONArray objaux = obj.getJSONArray("data");
                 JSONObject f = objaux.getJSONObject(0);
                 EmbedBuilder info = new EmbedBuilder();
+                float score_float = f.getFloat("score");
+                String score = String.valueOf(score_float);
 
                 info.setTitle("🍣 🍜 Information about the Anime: " + f.getString("title") + "");
-                float x = f.getFloat("score");
-                String s = String.valueOf(x);
-                info.addField("Score: ", s, true);
+                info.addField("Score: ",score , true);
                 info.addField("Type: ", f.getString("type"), true);
                 float x2 = f.getFloat("episodes");
                 String s2 = String.valueOf(x2);
