@@ -33,10 +33,10 @@ public class AnimeCommands extends ListenerAdapter {
                 float x2 = f.getFloat("episodes");
                 String s2 = String.valueOf(x2);
                 info.addField("Number of episodes: ", s2, true);
-                info.addField("Start date: ", f.getString("start_date").split("T")[0], true);
-                info.addField("End date: ", f.getString("end_date").split("T")[0], true);
+                //info.addField("Start date: ", f.getString("start_date").split("T")[0], true);
+                //info.addField("End date: ", f.getString("end_date").split("T")[0], true);
                 info.addField("Synopsis: ", f.getString("synopsis"), false);
-                info.setImage(f.getString("image_url")); // info.setImage or info.setThumbnail
+                //info.setImage(f.getString("image_url")); // info.setImage or info.setThumbnail
                 info.setColor(0xab0a1d);
                 event.getChannel().sendTyping().queue();
                 event.getChannel().sendMessageEmbeds(info.build()).queue();
