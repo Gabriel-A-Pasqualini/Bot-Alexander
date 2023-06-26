@@ -1,7 +1,19 @@
 token.txt
+<<<<<<< HEAD
+=======
+tokentst.txt
+>>>>>>> 3b8c3b29062bf6412a60a4ffdf1e2db154c8302d
 hippocrates.txt
 hippocratestwo.txt
 src/main/java/bot/alexander/apis/apiconfig.java
 src/main/java/bot/alexander/Commands/CommandConfig.java
 src/main/java/bot/alexander/Commands/HippocratesCommands.java
+<<<<<<< HEAD
 .fake
+=======
+.json
+squarecloud.app
+test.json
+bot.jar
+alexander.jar
+>>>>>>> 3b8c3b29062bf6412a60a4ffdf1e2db154c8302d

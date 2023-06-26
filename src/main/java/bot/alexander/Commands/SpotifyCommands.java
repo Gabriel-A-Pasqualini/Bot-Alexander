@@ -1,13 +1,19 @@
 package bot.alexander.Commands;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Nonnull;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import bot.alexander.alexander;
 import bot.alexander.apis.ApiSpotify;
 import bot.alexander.apis.TokenSpotify.TokenSpotify;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class SpotifyCommands extends ListenerAdapter{
     
@@ -84,7 +90,7 @@ public class SpotifyCommands extends ListenerAdapter{
                 event.getChannel().sendTyping().queue();
                 event.getChannel().sendMessageEmbeds(body.build()).queue();
 
-               body.clear();
+                body.clear();
 
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("Spotify command erro: "+e);
