@@ -1,0 +1,5 @@
+DISPLAY_NAME=Alexander 25-06-2023
+DESCRIPTION=2.3
+MAIN=bot.jar
+MEMORY=1000
+VERSION=recommended

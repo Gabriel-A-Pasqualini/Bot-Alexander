@@ -12,15 +12,16 @@ public class HelpCommands extends ListenerAdapter{
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
 
-        if (event.getMessage().getContentRaw().equalsIgnoreCase(prefix + "help")) {
+        if (event.getMessage().getContentRaw().startsWith(prefix + "help")) {
             System.out.println("help java");
             try {
                 EmbedBuilder info = new EmbedBuilder();
                 info.setTitle("🕹 Commands: ");
                 info.addField("🎥 Movie information ", "?movie [movie's name]", false);
                 info.addField("🍣🍜 Anime information ", "?anime [anime's name]", false);
-                info.addField("🎼🎶 Artist information ", "?artist [artist's name]", false);
+                info.addField("🎼🎶 Artist information ", "?spotify [artist's name]", false);
                 info.addField("⚖ Advice for you ", "?advice ", false);
+                info.addField("🃏 YuGiOh card's information ", "?card [card's name] FOR NOW ONLY MONSTERS", false);
                 info.setColor(0xab0a1d);
 
                 event.getChannel().sendTyping().queue();
@@ -30,6 +31,5 @@ public class HelpCommands extends ListenerAdapter{
                 System.out.println("help java não esta funcionando: "+e);
             }
         }
-
     }
 }

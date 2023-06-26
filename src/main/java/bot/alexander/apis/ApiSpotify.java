@@ -1,50 +1,42 @@
 package bot.alexander.apis;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class ApiSpotify {
-   
-    public static final String SEARCH_URL = "https://www.vagalume.com.br/band/index.js";
     
-    public static String sendGetRequest(String requestUrl){
-        StringBuffer response = new StringBuffer();
+    static OkHttpClient client = new OkHttpClient();
+
+    public static String searchSpotify(String token, String name) throws IOException {
         
-        try {
-            URL url = new URL(requestUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("accept","*/*");
-            connection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            connection.setRequestProperty("Authorization", "Bearer token");
-            InputStream stream = connection.getInputStream();
-            InputStreamReader reader = new InputStreamReader(stream);
-            BufferedReader buffer = new BufferedReader(reader);
-            String line;
-            while((line = buffer.readLine()) != null){
-                response.append(line);
-            }
-            buffer.close();
-            connection.disconnect();
+        String requestUrl = "https://api.spotify.com/v1/search?q="+name+"&type=artist&market=BR"; 
 
-        } catch (MalformedURLException e) {
-            
-            System.out.println("URL mal formatada");
-        } catch (IOException e) {
-            
-            System.out.println("Falha de input");
+
+        Request request = new Request.Builder()
+            .addHeader("Authorization", "Bearer "+token)    
+            .url(requestUrl)
+            .get()
+            .build();
+
+    try (Response response = client.newCall(request).execute()) {
+        return response.body().string();        
         }
+    } 
 
+    public static String searchTracksSpotify(String token, String id) throws IOException {
+        
+        String requestUrl = "https://api.spotify.com/v1/artists/"+id+"/top-tracks?market=BR"; 
+        
+        Request request = new Request.Builder()
+            .addHeader("Authorization", "Bearer "+token)    
+            .url(requestUrl)
+            .get()
+            .build();
 
-        return response.toString();
-    }
-    public static String searchBand(String band){
-        String requestUrl = SEARCH_URL.replace("band", band.trim().replace(" ", "-"));
-        return sendGetRequest(requestUrl);
-    }
+    try (Response response = client.newCall(request).execute()) {
+        return response.body().string();        
+        }
+    } 
 }

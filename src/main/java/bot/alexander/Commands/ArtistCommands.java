@@ -14,11 +14,10 @@ public class ArtistCommands extends ListenerAdapter {
     
     public void onMessageReceived(MessageReceivedEvent event) {
 
-        try {
             String message = event.getMessage().getContentRaw();
             String artist = message.split("artist")[1];
-            if (message.equalsIgnoreCase(prefix + "artist" + artist)) {
-                System.out.println("start artist");
+            
+            if (message.startsWith(prefix + "artist" + artist)) {
                 try {
                     String jsonResponse = song.searchBand(artist);
                     
@@ -75,13 +74,13 @@ public class ArtistCommands extends ListenerAdapter {
                     
                    
                 } catch (Exception e) {
-                    System.out.println("========== try 1, err: "+e);
+                    System.out.println("Artist error 1: "+e);
                 
                 }
             }
-        }catch (Exception e) {
-            System.out.println("========== try 2, err: "+e);;
-        }
+        //}catch (Exception e) {
+            //System.out.println("VASCO Artist error 1 "+e);;
+        //}
     }
     
 }
